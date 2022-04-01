@@ -96,7 +96,7 @@ public class TimeSeries<V> extends AbstractMap<Instant, V> {
     }
 
     public boolean availableFor(Duration timeframe, int period) {
-        return get(timeframe, period, Instant.now()) != null;
+        return get(timeframe, period) != null;
     }
 
 }

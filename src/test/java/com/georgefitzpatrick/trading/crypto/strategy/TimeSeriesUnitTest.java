@@ -19,10 +19,6 @@ public class TimeSeriesUnitTest {
     private static final Duration ONE_DAY = Duration.of(1, DAYS);
     private static final Duration TWO_DAYS = Duration.of(2, DAYS);
     private static final Duration THREE_DAYS = Duration.of(3, DAYS);
-    private static final Duration FOUR_DAYS = Duration.of(4, DAYS);
-    private static final Duration FIVE_DAYS = Duration.of(5, DAYS);
-    private static final Duration SIX_DAYS = Duration.of(6, DAYS);
-    private static final Duration ONE_WEEK = Duration.of(7, DAYS);
 
     /* ----- Constructors ----- */
 
@@ -33,58 +29,63 @@ public class TimeSeriesUnitTest {
     /* ----- Methods ----- */
 
     @Test
-    public void testGet() {
+    public void testGet_normalPeriod() {
         Instant now = Instant.now();
 
-        TimeSeries<Integer> series = new TimeSeries<>(ONE_WEEK);
-        series.put(now.minus(SIX_DAYS), 1);
-        series.put(now.minus(FIVE_DAYS), 2);
-        series.put(now.minus(FOUR_DAYS), 3);
-        series.put(now.minus(THREE_DAYS), 4);
-        series.put(now.minus(TWO_DAYS), 5);
-        series.put(now.minus(ONE_DAY), 6);
-        series.put(now, 7);
+        TimeSeries<Integer> series = new TimeSeries<>(THREE_DAYS);
+        series.put(now, 0);
+        series.put(now.minus(ONE_DAY), 1);
+        series.put(now.minus(TWO_DAYS), 2);
 
-        Assertions.assertEquals(7, series.get(ONE_DAY, 0));
-        Assertions.assertEquals(6, series.get(ONE_DAY, 1));
-        Assertions.assertEquals(5, series.get(ONE_DAY, 2));
-        Assertions.assertEquals(4, series.get(ONE_DAY, 3));
-        Assertions.assertEquals(3, series.get(ONE_DAY, 4));
-        Assertions.assertEquals(2, series.get(ONE_DAY, 5));
-        Assertions.assertEquals(1, series.get(ONE_DAY, 6));
+        Assertions.assertEquals(1, series.get(ONE_DAY, 1));
     }
 
     @Test
-    public void testGetAll() {
+    public void testGet_boundaryPeriod() {
         Instant now = Instant.now();
 
-        TimeSeries<Integer> series = new TimeSeries<>(ONE_WEEK);
-        series.put(now.minus(SIX_DAYS), 1);
-        series.put(now.minus(FIVE_DAYS), 2);
-        series.put(now.minus(FOUR_DAYS), 3);
-        series.put(now.minus(THREE_DAYS), 4);
-        series.put(now.minus(TWO_DAYS), 5);
-        series.put(now.minus(ONE_DAY), 6);
-        series.put(now, 7);
+        TimeSeries<Integer> series = new TimeSeries<>(THREE_DAYS);
+        series.put(now, 0);
+        series.put(now.minus(ONE_DAY), 1);
+        series.put(now.minus(TWO_DAYS), 2);
 
-        Assertions.assertEquals(List.of(1, 2, 3, 4, 5, 6, 7), series.getAll(ONE_DAY, 6));
+        Assertions.assertNull(series.get(TWO_DAYS, 2));
     }
 
     @Test
-    public void testAvailableFor() {
+    public void testGet_invalidPeriod() {
         Instant now = Instant.now();
 
-        TimeSeries<Integer> series = new TimeSeries<>(ONE_WEEK);
-        series.put(now.minus(SIX_DAYS), 1);
-        series.put(now.minus(FIVE_DAYS), 2);
-        series.put(now.minus(FOUR_DAYS), 3);
-        series.put(now.minus(THREE_DAYS), 4);
-        series.put(now.minus(TWO_DAYS), 5);
-        series.put(now.minus(ONE_DAY), 6);
-        series.put(now, 7);
+        TimeSeries<Integer> series = new TimeSeries<>(THREE_DAYS);
+        series.put(now, 0);
+        series.put(now.minus(ONE_DAY), 1);
+        series.put(now.minus(TWO_DAYS), 2);
 
-        Assertions.assertTrue(series.availableFor(ONE_DAY, 6));
-        Assertions.assertFalse(series.availableFor(ONE_DAY, 7));
+        Assertions.assertNull(series.get(ONE_DAY, 3));
+    }
+
+    @Test
+    public void testGetAll_normalPeriod() {
+        Instant now = Instant.now();
+
+        TimeSeries<Integer> series = new TimeSeries<>(THREE_DAYS);
+        series.put(now, 0);
+        series.put(now.minus(ONE_DAY), 1);
+        series.put(now.minus(TWO_DAYS), 2);
+
+        Assertions.assertEquals(List.of(2, 1, 0), series.getAll(ONE_DAY, 2));
+    }
+
+    @Test
+    public void testGetAll_invalidPeriod() {
+        Instant now = Instant.now();
+
+        TimeSeries<Integer> series = new TimeSeries<>(THREE_DAYS);
+        series.put(now, 0);
+        series.put(now.minus(ONE_DAY), 1);
+        series.put(now.minus(TWO_DAYS), 2);
+
+        Assertions.assertNull(series.getAll(ONE_DAY, 3).get(0));
     }
 
 }
