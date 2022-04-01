@@ -1,0 +1,503 @@
+
+* {
+    -fx-primary-text-color:          rgb(242, 242, 247);
+    -fx-secondary-text-color:        rgb(142, 142, 147);
+
+    -fx-primary-background-color:    rgb(28, 28, 30);
+    -fx-secondary-background-color:  rgb(44, 44, 46);
+    -fx-tertiary-background-color:   rgb(58, 58, 60);
+    -fx-quaternary-background-color: rgb(72, 72, 74);
+
+    -fx-primary-color-10pct:         rgb(64, 156, 255, 0.1);
+    -fx-primary-color-90pct:         rgb(64, 156, 255, 0.9);
+    -fx-primary-color:               rgb(64, 156, 255);
+
+    -fx-success-color-10pct:         rgb(48, 219, 91, 0.1);
+    -fx-success-color-90pct:         rgb(48, 219, 91, 0.9);
+    -fx-success-color:               rgb(48, 219, 91);
+
+    -fx-warning-color-10pct:         rgb(255, 179, 64, 0.1);
+    -fx-warning-color-90pct:         rgb(255, 179, 64, 0.9);
+    -fx-warning-color:               rgb(255, 179, 64);
+
+    -fx-error-color-10pct:           rgb(255, 69, 58, 0.1);
+    -fx-error-color-90pct:           rgb(255, 69, 58, 0.9);
+    -fx-error-color:                 rgb(255, 69, 58);
+}
+
+.root {
+    -fx-base:              -fx-primary-background-color;
+    -fx-background:        -fx-base;
+
+    -fx-hover-base:        transparent;
+
+    -fx-focus-color:       transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ====   GENERAL CONTROL  ============================================== */
+
+.button,
+.check-box > .box,
+.menu-button,
+.text-field,
+.spinner,
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button,
+.combo-box-base,
+.combo-box-base:editable > .arrow-button {
+    -fx-background-color:  transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+    -fx-border-color:      -fx-quaternary-background-color;
+    -fx-border-radius:     4px;
+    -fx-font-size:         0.9167em;
+    -fx-pref-height:       30px;
+}
+
+.button,
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button,
+.menu-button {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.text-field,
+.spinner,
+.combo-box-base,
+.combo-box-base:editable > .arrow-button {
+    -fx-text-fill:        -fx-primary-text-color;
+    -fx-prompt-text-fill: -fx-secondary-text-color;
+    -fx-max-width:        infinity;
+}
+
+.button:hover,
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover,
+.menu-button:hover {
+    -fx-background-color: -fx-primary-color-10pct;
+}
+
+.text-field:hover,
+.spinner:hover,
+.combo-box-base:hover {
+    -fx-border-color: -fx-secondary-text-color;
+}
+
+.text-field:focused,
+.spinner:focused,
+.combo-box-base:focused {
+    -fx-border-color: -fx-primary-color;
+}
+
+/* ====   ARROWS   ========================================================== */
+
+.combo-box-base > .arrow-button > .arrow,
+.table-view .arrow,
+.tab-pane > .tab-header-area > .control-buttons-tab > .container > .tab-down-button > .arrow,
+.titled-pane > .title > .arrow-button > .arrow,
+.menu-button > .arrow-button > .arrow,
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color:  -fx-primary-text-color;
+    -fx-background-insets: 0 0 -1 0, 0;
+    -fx-padding:           0.166667em 0.333333em 0.166667em 0.333333em;
+    -fx-shape:             "M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z";
+}
+
+/* ====   BOX LIKE THINGS   ================================================= */
+
+.scroll-pane,
+.split-pane,
+.list-view,
+.table-view {
+    -fx-background-color:  transparent;
+    -fx-background-insets: 0;
+}
+
+.scroll-pane:focused,
+.split-pane:focused,
+.list-view:focused,
+.table-view:focused {
+    -fx-background-color:  transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Label                                                                       *
+ *                                                                             *
+ ******************************************************************************/
+
+.label {
+    -fx-text-fill: -fx-primary-text-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Button                                                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+.button {
+    -fx-cursor: hand;
+}
+
+/* ====   DEFAULT   ========================================================= */
+
+.button:default {
+    -fx-background-color: -fx-primary-color;
+    -fx-border-color:     transparent;
+    -fx-text-fill:        -fx-primary-text-color;
+}
+
+.button:default:hover {
+    -fx-background-color: -fx-primary-color-90pct;
+}
+
+/* ====   CANCEL   ========================================================== */
+
+.button:cancel {
+    -fx-text-fill: -fx-error-color;
+}
+
+.button:cancel > * {
+    -fx-background-color: -fx-error-color;
+}
+
+.button:cancel:hover {
+    -fx-background-color: -fx-error-color-10pct;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * ScrollBar                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-padding:          0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color:  -fx-tertiary-background-color;
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow { -fx-padding: 0.15em 0.0 }
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button { -fx-padding: 0.0 4.0 0.0 0.0 }
+
+/*******************************************************************************
+ *                                                                             *
+ * Cell                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+
+.list-cell {
+    -fx-padding: 10px;
+}
+
+.list-cell,
+.table-cell {
+    -fx-font-size: 1.25em;
+    -fx-text-fill: -fx-primary-text-color;
+}
+
+.list-cell,
+.table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.list-cell:filled,
+.table-row-cell:filled {
+    -fx-border-color: -fx-secondary-background-color;
+    -fx-border-width: 0 0 1px 0;
+    -fx-cursor:       hand;
+}
+
+.list-cell:filled:hover,
+.table-row-cell:filled:hover {
+    -fx-background-color: derive(-fx-primary-background-color, 5%);
+}
+
+.list-cell:filled:selected,
+.table-row-cell:filled:selected {
+    -fx-background-color: -fx-secondary-background-color;
+}
+
+.list-cell > .button,
+.list-cell > .menu-button,
+.table-cell > .button,
+.table-cell > .menu-button {
+    -fx-min-width:  20px; -fx-max-width: 20px;
+    -fx-min-height: 20px; -fx-max-height: 20px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * ComboBox                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.combo-box {
+    -fx-cursor: hand;
+}
+
+.combo-box-base:showing > .arrow-button > .arrow {
+    -fx-rotate: 180;
+}
+
+/* ====   LISTVIEW   ======================================================== */
+
+.combo-box-popup > .list-view {
+    -fx-background-color:  -fx-secondary-background-color;
+    -fx-background-radius: 4px;
+    -fx-background-insets: 5px 0 5px 0;
+    -fx-border-color:      -fx-tertiary-background-color;
+    -fx-border-radius:     4px;
+    -fx-border-insets:     5px 0 5px 0;
+    -fx-padding:           0;
+}
+
+.combo-box > .list-cell {
+    -fx-font-size: 1em;
+    -fx-padding:   4 8 4 8;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled {
+    -fx-padding:      4 0 4 5;
+    -fx-border-width: 0;
+    -fx-font-size:    1em;
+    -fx-text-fill:    -fx-secondary-text-color
+}
+
+.combo-box > .list-cell:selected,
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: transparent;
+    -fx-border-width:     0;
+    -fx-text-fill:        -fx-primary-text-color;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* ====   EDITABLE   ======================================================== */
+
+.combo-box:editable > .text-field,
+.combo-box:editable > .arrow-button {
+    -fx-border-width: 0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * SplitPane                                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+.split-pane-divider {
+    -fx-background-color: -fx-secondary-background-color;
+    -fx-padding:          0 1 0 0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Separator                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.separator .line {
+    -fx-border-color: -fx-secondary-background-color;
+}
+
+.separator:horizontal .line {
+    -fx-border-width: 1px 0 0 0;
+}
+
+.separator:vertical .line {
+    -fx-border-width: 0 1px 0 0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * DialogPane                                                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.dialog-pane {
+    -fx-background-color: -fx-secondary-background-color;
+}
+
+.dialog-pane > .button-bar {
+    -fx-background-color: -fx-primary-background-color;
+}
+
+.dialog-pane > .content {
+    -fx-pref-width: 500;
+    -fx-padding:    10;
+    -fx-spacing:    5;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * TableView                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.table-view {
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color:   transparent;
+}
+
+.table-column {
+    -fx-padding: 0px 0px 0px 10px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color:     -fx-secondary-background-color;
+    -fx-border-width:     0 0 1px 0;
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+}
+
+/* ====   HEADER TEXT   ===================================================== */
+
+.table-view .column-header .label,
+.table-view .column-drag-header {
+    -fx-alignment: center-left;
+    -fx-font-size: 1em;
+    -fx-text-fill: -fx-secondary-text-color;
+}
+
+/* ====   REORDER   ========================================================= */
+
+.table-view .column-resize-line {
+    -fx-background-color: -fx-primary-color-90pct;
+}
+
+.table-view .column-drag-header,
+.table-view .column-overlay {
+    -fx-background-color: -fx-primary-color-10pct;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * TabPane                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-pane > .tab-header-area {
+    -fx-padding: 5px 10px 5px 10px;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color:     -fx-secondary-background-color;
+    -fx-border-width:     0 0 1px 0;
+}
+
+/* ====   TAB   ============================================================= */
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color:  transparent;
+    -fx-background-insets: 0;
+    -fx-cursor:            hand;
+    -fx-padding:           5px 10px 5px 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-text-fill: -fx-secondary-text-color;
+    -fx-font-size: 1.5em;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover > .tab-container > .tab-label {
+    -fx-text-fill: -fx-primary-text-color;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-label {
+    -fx-text-fill: -fx-primary-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * PopupMenu                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.context-menu {
+    -fx-background-color:  -fx-primary-background-color;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 4px;
+    -fx-border-color:      -fx-secondary-background-color;
+    -fx-border-radius:     4px;
+    -fx-padding:           0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * MenuItem                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.menu-item {
+    -fx-cursor:  hand;
+    -fx-padding: 5px 10px 5px 10px;
+}
+
+.check-menu-item {
+    -fx-mark-color:         -fx-primary-color;
+    -fx-focused-mark-color: -fx-primary-color;
+}
+
+.menu-item > .label {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.menu-item:hover,
+.menu-item:focused {
+    -fx-background-color: -fx-primary-color-10pct;
+}
+
+.menu-item:disabled {
+    -fx-background-color: transparent;
+    -fx-cursor:           default;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Spinner                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.spinner > .text-field {
+    -fx-border-width: 0
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-border-radius: 0;
+    -fx-border-width:  0 0 0 1px;
+    -fx-cursor:        hand;
+}
+
+.spinner .increment-arrow-button .increment-arrow {
+    -fx-rotate: 180;
+}
+
+.spinner .increment-arrow-button .increment-arrow,
+.spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: -fx-primary-color;
+}

@@ -1,0 +1,147 @@
+/*******************************************************************************
+ *                                                                             *
+ * Text                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+
+.primary-text {
+    -fx-text-fill: -fx-primary-text-color;
+}
+
+.secondary-text {
+    -fx-text-fill: -fx-secondary-text-color;
+}
+
+.success-text {
+    -fx-text-fill: -fx-success-color;
+}
+
+.warning-text {
+    -fx-text-fill: -fx-warning-color;
+}
+
+.error-text {
+    -fx-text-fill: -fx-error-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Background                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+
+.primary-background {
+    -fx-background-color: -fx-primary-background-color;
+}
+
+.secondary-background {
+    -fx-background-color: -fx-secondary-background-color;
+}
+
+.tertiary-background {
+    -fx-background-color: -fx-tertiary-background-color;
+}
+
+.quaternary-background {
+    -fx-background-color: -fx-quaternary-background-color;
+}
+
+.success-background {
+    -fx-background-color: -fx-success-color;
+}
+
+.warning-background {
+    -fx-background-color: -fx-warning-color;
+}
+
+.error-background {
+    -fx-background-color: -fx-error-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Icon                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+
+.icon {
+    -fx-background-color: -fx-primary-color;
+    -fx-min-width:        8px;
+    -fx-min-height:       8px;
+    -fx-max-width:        8px;
+    -fx-max-height:       8px;
+}
+
+.more-vert-icon {
+    -fx-shape: "M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z";
+}
+
+.add-icon {
+    -fx-shape: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z";
+}
+
+.search-icon {
+    -fx-shape: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z";
+}
+
+.delete-icon {
+    -fx-shape: "M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z";
+}
+
+.play-icon {
+    -fx-shape: "M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z";
+}
+
+.pause-icon {
+    -fx-shape: "M6 19h4V5H6v14zm8-14v14h4V5h-4z";
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Accessibility Bar                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.accessibility-bar .combo-box {
+    -fx-border-width:      0;
+    -fx-background-radius: 0;
+}
+
+.accessibility-bar .combo-box .arrow {
+    -fx-background-color: transparent;
+}
+
+.accessibility-bar .combo-box:hover {
+    -fx-background-color: derive(-fx-primary-background-color, 5%);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * HintLabel                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.hint-label:hinting {
+    -fx-text-fill: -fx-warning-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * WorkerStateLabel                                                            *
+ *                                                                             *
+ ******************************************************************************/
+
+.worker-state-label:ready,
+.worker-state-label:cancelled {
+    -fx-text-fill: -fx-warning-color;
+}
+
+.worker-state-label:scheduled,
+.worker-state-label:running,
+.worker-state-label:succeeded {
+    -fx-text-fill: -fx-success-color;
+}
+
+.worker-state-label:failed {
+    -fx-text-fill: -fx-error-color;
+}

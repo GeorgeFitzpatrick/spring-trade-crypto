@@ -1,0 +1,29 @@
+logging:
+  level:
+    root: info
+
+spring:
+  main:
+    web-application-type: none
+  sql:
+    init:
+      mode: always
+  jpa:
+    database: H2
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: 'jdbc:h2:file:./userdata/h2db;CIPHER=AES'
+    driver-class-name: org.h2.Driver
+    username: 'sa'
+    password: 'filePassword userPassword'
+
+trading:
+  crypto:
+    ui:
+      title: 'spring-trade-crypto'
+      primary-view: 'classpath:/view/MainView.fxml'
+      resource-bundle-base-name: 'bundle'
+      style-sheets:
+        - 'classpath:/style/default-styles.css'
+        - 'classpath:/style/custom-styles.css'

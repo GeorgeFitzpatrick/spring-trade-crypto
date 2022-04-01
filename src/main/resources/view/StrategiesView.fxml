@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import com.georgefitzpatrick.trading.crypto.ui.control.WorkerStateLabel?>
+<SplitPane xmlns:fx="http://javafx.com/fxml/1" dividerPositions="0.25" VBox.vgrow="ALWAYS"
+           xmlns="http://javafx.com/javafx/16"
+           fx:controller="com.georgefitzpatrick.trading.crypto.ui.controller.StrategiesController">
+    <VBox SplitPane.resizableWithParent="false">
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <TextField fx:id="filterTextField" onKeyTyped="#filterChanged" HBox.hgrow="ALWAYS"/>
+            <Button onAction="#newStrategy">
+                <graphic>
+                    <Pane>
+                        <styleClass>
+                            <String fx:value="icon"/>
+                            <String fx:value="add-icon"/>
+                        </styleClass>
+                    </Pane>
+                </graphic>
+            </Button>
+        </HBox>
+        <Separator/>
+        <ListView fx:id="servicesListView" VBox.vgrow="ALWAYS"/>
+    </VBox>
+    <VBox fx:id="detail">
+        <VBox>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <Label fx:id="nameLabel">
+                <font>
+                    <Font size="30.0"/>
+                </font>
+            </Label>
+            <WorkerStateLabel fx:id="statusLabel">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </WorkerStateLabel>
+        </VBox>
+        <Separator/>
+        <SplitPane dividerPositions="0.5">
+            <VBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <Label fx:id="buyConditionsLabel" maxWidth="Infinity" style="-fx-font-size: 1.5em;"
+                           styleClass="secondary-text" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="newBuyConditionButton" onAction="#newCondition">
+                        <graphic>
+                            <Pane>
+                                <styleClass>
+                                    <String fx:value="icon"/>
+                                    <String fx:value="add-icon"/>
+                                </styleClass>
+                            </Pane>
+                        </graphic>
+                    </Button>
+                </HBox>
+                <Separator/>
+                <ListView fx:id="buyConditionsListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <Label fx:id="sellConditionsLabel" maxWidth="Infinity" style="-fx-font-size: 1.5em;"
+                           styleClass="secondary-text" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="newSellConditionButton" onAction="#newCondition">
+                        <graphic>
+                            <Pane>
+                                <styleClass>
+                                    <String fx:value="icon"/>
+                                    <String fx:value="add-icon"/>
+                                </styleClass>
+                            </Pane>
+                        </graphic>
+                    </Button>
+                </HBox>
+                <Separator/>
+                <ListView fx:id="sellConditionsListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </SplitPane>
+        <Separator/>
+        <Label fx:id="eventsLabel" style="-fx-font-size: 1.5em;" styleClass="secondary-text">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </Label>
+        <Separator/>
+        <TableView fx:id="eventsTableView">
+            <placeholder>
+                <Label/>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="timestampColumn"/>
+                <TableColumn fx:id="messageColumn"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
+</SplitPane>
